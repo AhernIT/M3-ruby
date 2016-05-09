@@ -1,10 +1,11 @@
 # M3
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/m3`. To experiment with that code, run `bin/console` for an interactive prompt.
+Access the [M3](http://www.infor.com/product-summary/erp/m3/) database. *NOTE*: this gem is currently in an alpha state and may change often without notice. This first iteration is for connecting to a local system.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
+
+This gem is for `jruby`1.7+ Be sure to have [JRuby](http://jruby.org/) installed first.
 
 Add this line to your application's Gemfile:
 
@@ -22,7 +23,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'm3'
+
+M3.configure do |c|
+  c.username = ENV['M3_USERNAME']
+  c.password = ENV['M3_PASSWORD']
+end
+```
 
 ## Development
 

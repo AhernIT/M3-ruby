@@ -1,4 +1,6 @@
 /.bundle/
+.DS_Store
+/.env
 /.yardoc
 /Gemfile.lock
 /_yardoc/
