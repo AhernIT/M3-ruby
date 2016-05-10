@@ -26,7 +26,7 @@ module M3
     def execute(endpoint, fields = {}, &block)
       raise ConnectionNotEstablished unless connected?
 
-      result = M3::QueryResult.new(endpoint: endpoint, fields: fields, socket: @socket)
+      result = M3::QueryResult.new(endpoint, fields, @socket)
       yield(result)
       disconnect
     end

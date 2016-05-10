@@ -1,9 +1,7 @@
 module M3
   class QueryResult
     def initialize(endpoint, fields, socket)
-      @fields = fields
-      @socket = socket
-      @endpoint = endpoint
+      @endpoint, @fields, @socket = endpoint, fields, socket
       set_fields!
       access_endpoint!
     end
