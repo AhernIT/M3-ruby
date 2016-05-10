@@ -14,7 +14,7 @@ module M3
       @socket.mvx_get_last_error
     end
 
-    def []=(field)
+    def [](field)
       @socket.mvx_get_field(field.to_s)
     end
 
