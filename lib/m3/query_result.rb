@@ -1,6 +1,6 @@
 module M3
   class QueryResult
-    def initialize(endpoint: , fields: , socket:)
+    def initialize(endpoint, fields, socket)
       @fields = fields
       @socket = socket
       @endpoint = endpoint
