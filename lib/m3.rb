@@ -1,5 +1,8 @@
+require File.join(File.dirname(__FILE__), '..', 'vendor', 'MvxAPI.jar')
 require "m3/version"
 require "m3/configuration"
+require "m3/query_result"
+require "m3/client"
 
 module M3
   class << self
