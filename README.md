@@ -27,8 +27,11 @@ Or install it yourself as:
 require 'm3'
 
 M3.configure do |c|
-  c.username = ENV['M3_USERNAME']
-  c.password = ENV['M3_PASSWORD']
+  c.uri = "127.0.0.1:3000"  # This IP and port you connect to your M3 system with
+  c.username = ENV['M3_USERNAME'] # Your M3 database username
+  c.password = ENV['M3_PASSWORD'] # Your M3 database password
+  c.api = "MMITEST" # Whatever API you connect to for stuff
+  c.trim_whitespace = true # true by default
 end
 ```
 
@@ -40,7 +43,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/m3. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/AhernIT/m3. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

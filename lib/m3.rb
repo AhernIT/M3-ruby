@@ -1,6 +1,14 @@
 require "m3/version"
+require "m3/configuration"
 
 module M3
-  # Your code goes here...
+  class << self
+    attr_accessor :configuration
+
+    def configure
+      self.configuration ||= Configuration.new
+      yield(configuration)
+    end
+  end
 end
 
