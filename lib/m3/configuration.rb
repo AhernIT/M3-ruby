@@ -1,12 +1,8 @@
 module M3
   class Configuration
-    OPTIONS = %i(
-      uri
-      username
-      password
-      api
-      trim_whitespace
-    ).freeze
+    OPTIONS = [
+      :uri, :username, :password, :api, :trim_whitespace
+    ].freeze
     OPTIONS.each(&method(:attr_accessor))
 
     def initialize
