@@ -23,9 +23,11 @@ Or install it yourself as:
 
 ## Usage
 
+require the gem and configure it
 ```ruby
 require 'm3'
 
+# The configuration must be set first
 M3.configure do |c|
   c.uri = "127.0.0.1:3000"  # This IP and port you connect to your M3 system with
   c.username = ENV['M3_USERNAME'] # Your M3 database username
@@ -33,6 +35,30 @@ M3.configure do |c|
   c.api = "MMITEST" # Whatever API you connect to for stuff
   c.trim_whitespace = true # true by default
 end
+```
+
+Setup your client
+```ruby
+$client = M3::Client.new
+$client.connected? #=> false
+$client.connect 
+# if the connection is good
+$client.connected? #=> true
+```
+
+Executing calls
+```ruby
+$client.execute('GetPriceLine', {'CUNO' => '100', 'ITNO' => '123'}) do |result|
+  # if there are any errors
+  # puts result.error_code #=> 7
+  # puts result.last_error #=> "That item does not exist"
+  
+  # otherwise you can access data from the result like
+  puts result[:SAPR] #=> "14.99"
+end
+# connections are closed after execution.
+# TODO: see if the jar has a timeout option to keep sockets opened longer
+$client.connected? #=> false
 ```
 
 ## Development
