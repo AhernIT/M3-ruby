@@ -15,7 +15,7 @@ module M3
     def connect(api = M3.configuration.api)
       i = @socket.mvx_init('LOCALA', M3.configuration.username, M3.configuration.password, api)
       @connected = i.zero?
-      raise ::ConnectionNotEstablishedError, @socket.mvx_get_last_error unless connected? 
+      raise ConnectionNotEstablishedError, @socket.mvx_get_last_error unless connected? 
       @socket
     end
 
